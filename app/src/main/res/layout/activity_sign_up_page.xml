@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUpPage"
-    android:padding="16dp">
+    android:padding="32dp">
 
     <TextView
         android:text="@string/sign_up"
@@ -19,13 +19,26 @@
         android:layout_height="wrap_content"/>
 
     <EditText
+        android:layout_marginTop="16dp"
         android:id="@+id/etFname"
         android:hint="@string/first_name"
         android:textColor="@color/black"
         android:padding="12dp"
+        android:background="@drawable/edittext_border"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"/>
+
+    <EditText
+        android:layout_marginTop="12dp"
+        android:id="@+id/etLname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_border"
+        android:hint="@string/last_name"
+        android:inputType="text"
+        android:padding="12dp"
+        android:textColor="@color/black" />
 
 
 </LinearLayout>
