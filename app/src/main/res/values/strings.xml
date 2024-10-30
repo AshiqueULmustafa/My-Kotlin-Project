@@ -2,7 +2,7 @@
     <string name="app_name">SignUpPage</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
-    <string name="dob">Date Of Birth</string>
+    <string name="dob">Date Of Birth (DD-MM-YYYY)</string>
     <string name="email">Email</string>
     <string name="phone">Phone</string>
     <string name="password">Password</string>

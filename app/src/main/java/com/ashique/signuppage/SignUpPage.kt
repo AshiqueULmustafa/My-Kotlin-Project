@@ -12,7 +12,7 @@ class SignUpPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        Log.d("mydebug","hello")
+
         setContentView(R.layout.activity_sign_up_page)
 
     }
