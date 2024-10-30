@@ -6,8 +6,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpPage"
-    android:padding="32dp">
+    android:padding="32dp"
+    tools:context=".SignUpPage">
 
     <TextView
         android:text="@string/sign_up"
