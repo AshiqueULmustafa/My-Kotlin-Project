@@ -23,41 +23,45 @@ class SignUpPage : AppCompatActivity() {
         setContentView(R.layout.activity_sign_up_page)
         val fName = findViewById<EditText>(R.id.etFname)
         val lName = findViewById<EditText>(R.id.etLname)
-        val dob = findViewById<EditText>(R.id.etDOB)
-        val email = findViewById<EditText>(R.id.etEmail)
-        val password = findViewById<EditText>(R.id.etPass)
-        val phone = findViewById<EditText>(R.id.etPhone)
-        val confirmpass = findViewById<EditText>(R.id.etCpass)
+        val Dob = findViewById<EditText>(R.id.etDOB)
+        val Email = findViewById<EditText>(R.id.etEmail)
+        val Password = findViewById<EditText>(R.id.etPass)
+        val Phone = findViewById<EditText>(R.id.etPhone)
+        val Confirmpass = findViewById<EditText>(R.id.etCpass)
         val btnsubmit : Button = findViewById(R.id.btnSubmit)
 
-        var allFilled = false
 
 
-        if(fName.text.toString().trim().isNullOrEmpty() &&
-            lName.text.toString().trim().isNullOrEmpty() &&
-            dob.text.toString().trim().isNullOrEmpty() &&
-            email.text.toString().trim().isNullOrEmpty() &&
-            password.text.toString().trim().isNullOrEmpty() &&
-            phone.text.toString().trim().isNullOrEmpty() &&
-            confirmpass.text.toString().trim().isNullOrEmpty() &&
-            password.text.toString().trim().isNullOrEmpty()
-        ){}
+        /*if(isAnyFieldEmpty){
+
+        }
         else{
-            Log.d("mydebug", "hello")
-            allFilled = true
+            Log.d("mydebug", "no null")
             btnsubmit.setBackgroundColor(Color.CYAN)
-        }
+        }*/
 
-
-        if(allFilled) {
-            Log.d("mydebug", "hello")
-        }
         btnsubmit.setOnClickListener(){ view->
-            if(allFilled){
-                Toast.makeText(this@SignUpPage,"Your Data is Accepted", Toast.LENGTH_LONG).show()
+            val fname = fName.text.toString().trim()
+            val lname = lName.text.toString().trim()
+            val dob =  Dob.text.toString().trim()
+            val email = Email.text.toString().trim()
+            val password = Password.text.toString().trim()
+            val phone = Phone.text.toString().trim()
+            val confirmpass = Confirmpass.text.toString().trim()
+
+            val field = listOf(fname,lname,dob,email,password,confirmpass)
+            val isAnyFieldEmpty : Boolean = field.any{it.isNullOrEmpty()}
+
+            if(isAnyFieldEmpty
+                ){
+
+                Toast.makeText(this@SignUpPage,"Please Complete All The Information", Toast.LENGTH_SHORT).show()
+
             }
             else{
-                Toast.makeText(this@SignUpPage,"Please Complete All The Information", Toast.LENGTH_SHORT).show()
+                btnsubmit.setBackgroundColor(Color.CYAN)
+                Toast.makeText(this@SignUpPage,"Your Data is Accepted", Toast.LENGTH_LONG).show()
+
             }
         }
 
