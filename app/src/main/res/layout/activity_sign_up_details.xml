@@ -14,8 +14,8 @@
         android:padding="32dp"
         android:textSize="20sp">
         <ImageView
-            android:layout_width="320dp"
-            android:layout_height="320dp"
+            android:layout_width="@dimen/image_size"
+            android:layout_height="@dimen/image_size"
             android:src="@drawable/android"
             android:layout_gravity="center"
             />

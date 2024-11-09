@@ -21,6 +21,7 @@ class SignUpPage : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up_page)
+
         val fName = findViewById<EditText>(R.id.etFname)
         val lName = findViewById<EditText>(R.id.etLname)
         val Dob = findViewById<EditText>(R.id.etDOB)
@@ -54,9 +55,7 @@ class SignUpPage : AppCompatActivity() {
 
             if(isAnyFieldEmpty
                 ){
-
                 Toast.makeText(this@SignUpPage,"Please Complete All The Information", Toast.LENGTH_SHORT).show()
-
             }
             else{
                 btnsubmit.setBackgroundColor(Color.CYAN)
