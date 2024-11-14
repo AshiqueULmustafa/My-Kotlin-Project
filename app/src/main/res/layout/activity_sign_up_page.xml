@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
 
         android:padding="32dp"
         android:orientation="vertical">
@@ -35,6 +35,16 @@
             android:padding="16dp"
             android:textColor="@color/black" />
 
+        <TextView
+            android:id="@+id/missfname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/firstname_miss"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            android:visibility="gone"
+            />
         <EditText
             android:id="@+id/etLname"
             android:layout_width="match_parent"
@@ -42,9 +52,20 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/ripple"
             android:hint="@string/last_name"
+            android:importantForAutofill="no"
             android:inputType="text"
             android:padding="16dp"
             android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/misslname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lastname_miss"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            android:visibility="gone"
+            />
 
         <EditText
             android:id="@+id/etDOB"
@@ -56,6 +77,16 @@
             android:inputType="date"
             android:padding="16dp"
             android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/missdob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dob_miss"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            android:visibility="gone"
+            />
 
         <EditText
             android:id="@+id/etAddress"
@@ -67,18 +98,40 @@
             android:inputType="text"
             android:padding="12dp"
             android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/missaddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/address_miss"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            android:visibility="gone"
+            />
 
         <EditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:autofillHints=""
             android:background="@drawable/ripple"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:padding="16dp"
             android:textColor="@color/black"
            />
+
+        <TextView
+            android:id="@+id/missemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/email_miss"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            android:visibility="gone"
+            />
         <EditText
             android:id="@+id/etPhone"
             android:layout_width="match_parent"
@@ -89,6 +142,16 @@
             android:inputType="phone"
             android:padding="16dp"
             android:textColor="@color/black"
+            />
+        <TextView
+            android:id="@+id/missphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/phone_miss"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            android:visibility="gone"
             />
 
         <EditText
@@ -102,6 +165,27 @@
             android:padding="16dp"
             android:textColor="@color/black"
              />
+        <TextView
+            android:id="@+id/misspass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pass_miss"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            android:visibility="gone"
+            />
+        <TextView
+            android:id="@+id/tvBadPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bad_pass"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            android:visibility="gone"
+            />
+
 
         <EditText
             android:id="@+id/etCpass"
@@ -114,6 +198,26 @@
             android:padding="16dp"
             android:textColor="@color/black"
              />
+        <TextView
+            android:id="@+id/misscpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cpass_miss"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            android:visibility="gone"
+            />
+        <TextView
+            android:id="@+id/missmatchpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/miss_match"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            android:visibility="gone"
+            />
 
         <Button
             android:id="@+id/btnSubmit"
