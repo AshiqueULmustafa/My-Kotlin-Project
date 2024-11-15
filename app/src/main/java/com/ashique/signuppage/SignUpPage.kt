@@ -36,7 +36,22 @@ class SignUpPage : AppCompatActivity() {
         val btnsubmit: Button = findViewById(R.id.btnSubmit)
         val badPass: TextView = findViewById(R.id.tvBadPass)
 
-
+        val fields = mapOf(
+                etfname to tvfname,
+                etlname to tvlname,
+                etdob to tvdob,
+                etaddress to tvaddress,
+                etemail to tvemail,
+                etphone to tvphone,
+                etconfirmPass to tvcpass
+            )
+        fields.forEach{ (editText, textview)->
+            editText.onFocusChangeListener = View.OnFocusChangeListener{ _,hasFocus ->
+                if(hasFocus){
+                    textview.visibility = View.GONE
+                }
+            }
+        }
 
         etpassword.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
@@ -49,18 +64,11 @@ class SignUpPage : AppCompatActivity() {
 
 
         btnsubmit.setOnClickListener {
+            val password = etpassword.text.toString().trim()
+            val confirmpass = etconfirmPass.text.toString().trim()
 
-            val fields = mapOf(
-                etfname to tvfname,
-                etlname to tvlname,
-                etdob to tvdob,
-                etaddress to tvaddress,
-                etemail to tvemail,
-                etphone to tvphone,
-                etconfirmPass to tvcpass
-            )
             fields.forEach{ (editText, textview)->
-                val fieldvalue = editText.toString().trim()
+                val fieldvalue = editText.text.toString().trim()
                 if(fieldvalue.isEmpty()){
                     textview.visibility = View.VISIBLE
                 }
@@ -70,53 +78,20 @@ class SignUpPage : AppCompatActivity() {
 
             }
 
-
-//                if(fname.isEmpty()){
-//                    tvfname.visibility = View.VISIBLE
-//                }
-//                if(lname.isEmpty()){
-//                    tvlname.visibility = View.VISIBLE
-//                }
-//                if(dob.isEmpty()){
-//                    tvdob.visibility = View.VISIBLE
-//                }
-//                if(email.isEmpty()){
-//                    tvemail.visibility = View.VISIBLE
-//                }
-
-
-            val password = etpassword.toString().trim()
-            val confirmpass = etconfirmPass.toString().trim()
-
             if (password.isEmpty()) {
                 tvpass.visibility = View.VISIBLE
-            } else {
-                tvpass.visibility = View.GONE
             }
-
-            if (confirmpass.isEmpty()) {
+            else if (confirmpass.isEmpty()) {
+                tvpass.visibility = View.GONE
                 tvcpass.visibility = View.VISIBLE
             } else if (password != confirmpass) {
+                tvpass.visibility = View.GONE
                 tvmissmatch.visibility = View.VISIBLE
             } else {
+                tvpass.visibility = View.GONE
                 tvmissmatch.visibility = View.GONE
             }
 
-
-//            val field = listOf(fname, lname, etdob, etemail,etphone, etpassword, etconfirmpass)
-//            val isAnyFieldEmpty: Boolean = field.any { it.isEmpty() }
-//            if (isAnyFieldEmpty
-//            ) {
-//                Toast.makeText(
-//                    this@SignUpPage,
-//                    "Please Complete All The Information",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            } else {
-//                btnsubmit.setBackgroundColor(Color.CYAN)
-//                Toast.makeText(this@SignUpPage, "Your Data is Accepted", Toast.LENGTH_LONG).show()
-//
-//            }
         }
 
 
