@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 
 class SignUpPage : AppCompatActivity() {
 
@@ -43,6 +44,7 @@ class SignUpPage : AppCompatActivity() {
                 etaddress to tvaddress,
                 etemail to tvemail,
                 etphone to tvphone,
+                etpassword to tvpass,
                 etconfirmPass to tvcpass
             )
         fields.forEach{ (editText, textview)->
@@ -53,10 +55,21 @@ class SignUpPage : AppCompatActivity() {
             }
         }
 
+
         etpassword.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+
             if (hasFocus) {
-                tvpass.visibility = View.GONE
                 badPass.visibility = View.VISIBLE
+                etpassword.addTextChangedListener{
+                    val fieldvalue = etpassword.text.toString().trim()
+                    if(fieldvalue.length<8){
+                        badPass.visibility = View.VISIBLE
+                    }
+                    else{
+                        badPass.visibility = View.GONE
+                    }
+                }
+                tvpass.visibility = View.GONE
             } else {
                 badPass.visibility = View.GONE
             }
@@ -68,6 +81,8 @@ class SignUpPage : AppCompatActivity() {
             val confirmpass = etconfirmPass.text.toString().trim()
 
             fields.forEach{ (editText, textview)->
+
+                editText.clearFocus()
                 val fieldvalue = editText.text.toString().trim()
                 if(fieldvalue.isEmpty()){
                     textview.visibility = View.VISIBLE
@@ -81,7 +96,14 @@ class SignUpPage : AppCompatActivity() {
             if (password.isEmpty()) {
                 tvpass.visibility = View.VISIBLE
             }
+            else if(password.length < 8){
+                badPass.visibility = View.VISIBLE
+                tvpass.visibility = View.GONE
+                tvcpass.visibility = View.GONE
+                tvmissmatch.visibility = View.GONE
+            }
             else if (confirmpass.isEmpty()) {
+                badPass.visibility = View.GONE
                 tvpass.visibility = View.GONE
                 tvcpass.visibility = View.VISIBLE
             } else if (password != confirmpass) {
